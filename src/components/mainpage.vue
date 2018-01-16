@@ -67,9 +67,7 @@
             <img src="../assets/bfpc.jpg" alt="二维码">
         </div>
     </div>
-    <div class="footer">
-         <p>© 2017 成都红云鼎科技有限公司 蜀ICP备17038712号</p>
-    </div>
+
 </div>
 </template>
 <script>
@@ -197,12 +195,7 @@ export default {
     width: 100px;
     height: 100px;
 }
-.footer{
-    padding: 10px;
-    background-color: #313131;
-    color: #f5f5f5;
-    text-align: center
-}
+
 @media screen and (min-width:375px) and (max-width:430px){
     body{min-width: 0;}
     .intorduction {   
