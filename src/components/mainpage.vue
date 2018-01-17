@@ -4,14 +4,17 @@
         <div class="bgimage"></div>
         <div class="blur"></div>
         <div class="intorduction">
-            <div class="intorduction-left">红云鼎</div>
-            <div class="intorduction-right">
-                <ul>
-                    <li>引领物联网智慧浪潮</li>
-                    <li>行业领先的管理解决方案</li>
-                    <li>绿色低碳的工程之选</li>
-                </ul>
+            <div class="intorduction-content wow fadeInUp data-wow-delay= ' .3s' ">
+                <h1>红云鼎</h1>
+                <p>引领物联网智慧浪潮</p>
+                <p>行业领先的管理解决方案</p>
+                <p>绿色低碳的工程之选</p>
             </div>
+            <div class="join">
+                <router-link tag="buton" class="join-btn" to="/aboutus">
+                加入我们
+                </router-link>  
+            </div> 
         </div>
     </div>
     <div class="about">
@@ -84,21 +87,24 @@ export default {
 }
 .title{
     position: relative;
-    height: 600px;
+    height: 800px;
     width: 100%;
+    
 }
 .title img{
     width: 100%;
     height: 100%;
     background-size: cover
 }
+
 .blur{
     position: absolute;
     top:0;
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.4)
+    background-color: rgba(0, 0, 0, 0.4);
 }
+
 .bgimage{
     height: 100%;
     background-image: url("../assets/christian-seeling-118793.jpg");
@@ -106,24 +112,46 @@ export default {
 }
 .intorduction{
     display: flex;
+    flex-direction: column;
+    align-items: center;
     position: absolute;
-    top:50%;
+    top:40%;
     margin-left: 35%;
     color:white;
 }
-.intorduction-left{
-    padding-right:80px; 
+.intorduction-content{
     font-size:60px;
-    border-right: 4px solid white
 }
-.intorduction-right{
-    flex-direction: column;
-    font-size:20px; 
+.intorduction-content p{
+    float: left;
+    padding: 20px;
+    text-align: center;
+    font-size:20px;
 }
-
 .intorduction-right li{
     padding: 20px;
 }
+  .join-btn{
+    padding: 10px 40px 10px 40px;
+    width: 200px;
+    color: black;
+    border: 1px solid black;
+    background-color: rgba(255, 255, 255, 0.431);
+    transition: all 0.5s;
+    font-size: 15px;
+    text-align: center;
+    border-radius: 5px;
+  }
+    .join{
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+    text-align: center
+  }
+  .join-btn:hover{
+    color: white;
+    background-color: black
+  }
 .about{
   display: flex;
   justify-content:center;
@@ -196,7 +224,7 @@ export default {
     height: 100px;
 }
 
-@media screen and (min-width:375px) and (max-width:430px){
+@media screen and (min-width:360px) and (max-width:430px){
     body{min-width: 0;}
     .intorduction {   
         top: 30%;

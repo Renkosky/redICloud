@@ -33,6 +33,9 @@ h4, h5, h6 { font-family: Microsoft YaHei,'宋体' , Tahoma, Helvetica, Arial, "
 ul,li{list-style: none}
 a{text-decoration:none !important}
 a:hover{text-decoration:none !important}
-/* body { min-width: 1000px } */
+body { min-width: 1000px }
 p,nav{margin: 0px}
+@media screen and (min-width:360px) and (max-width:430px){
+    body{min-width: 0;}
+}
 </style>

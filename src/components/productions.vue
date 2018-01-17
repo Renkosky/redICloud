@@ -1,51 +1,167 @@
 <template>
-  <div class="productions">
-    <div class="production-titles">
-      <h2>我们的产品</h2>
-        <div class="productions-cat">
-          <router-link  to="/productions/progres" class="nav-items">进度管理</router-link>
-          <router-link  to="/productions/lis" class="nav-items" >工序管理</router-link>
-          <router-link  to="/productions/ene" class="nav-items">能耗管理</router-link>
-          <router-link  to="/productions/mointor" class="nav-items">智能监理</router-link>
-          <router-link  to="/productions/ioput" class="nav-items">进销存管理</router-link>
-        </div>
-    </div>
-
-      <router-view></router-view>
+<div class="producshow-position"> 
+  <div class="producshow-cover" @mouseover="clearInv" @mouseout="runInv">
+      <img class="fadeInLeft wow data-wow-delay=' .1s'"  :v-if="isShow" :src="productions[nowIndex].src" alt="error">
+      <img class="fadeInRight wow data-wow-delay=' .1s'" v-if="!isShow" :src="productions[nowIndex].src">
+      <div class="producshow-text wow fadeIn data-wow-delay='.6s'">
+        <h3>{{ productions[nowIndex].title }}</h3>
+        <p>{{ productions[nowIndex].text }}</p>
+      </div>
   </div>
-  
+  <div class="slide-pages-position">
+    <div class="slide-pages">
+      <ul>
+        <li @click="goto(prevIndex)">&lt;</li>   
+          <li v-for="(item, index) in productions"  @click="goto(index)" :key="index">
+            <div class="slide-dots-icon" :class="{on: index === nowIndex}">
+            </div>
+          </li>
+          <li @click="goto(nextIndex)">&gt;</li>
+      </ul>
+    </div>
+  </div>
+</div>
 </template>
 <script>
 export default {
-  name: 'productions'
+  name: 'about',
+  props: {
+    inv: {
+      type: Number,
+      default: 6000
+    }
+  },
+  data () {
+    return {
+      productions: [
+        {
+          src: require('../assets/n153.jpg'),
+          title: '进度管理',
+          text: '我们为客户提供了端到端的进度管理解决方案，在充分保障工程安全和质量的前提下，有效的提升项目进度。'
+        },
+        {
+          src: require('../assets/szt9.jpg'),
+          title: '工序管理',
+          text: '施工人员通过手持终端的APP，提前查看各工序的准备情况，提前预判工序的必要条件是否能满足并及时解决问题，减少工序间的等待时间，提高作业效率。'
+        },
+        {
+          src: require('../assets/1xcs.jpg'),
+          title: '智能监理',
+          text: '我们对施工中高能耗的机电设备进行动态监测和分析，实现能耗精细化管理与控制，达到节能减排的效果，为客户节约成本。'
+        },
+        {
+          src: require('../assets/jss8.jpg'),
+          title: '进销存管理',
+          text: '我们为客户提供物料进销存CRM系统，帮助客户有效保障生产经营活动的供给，压缩库存资金占用，降低采购和销售成本，提高客户经济效益。'
+        },
+        {
+          src: require('../assets/w993.jpg'),
+          title: '智能监理',
+          text: '我们为客户提供路面智能监理系统，您不用到现场，也能实时掌握路面的施工进度和施工质量。'
+        }
+      ],
+      nowIndex: 0,
+      isShow: true
+    }
+  },
+  methods: {
+    goto (index) {
+      this.isShow = false
+      setTimeout(() => {
+        this.isShow = true
+        this.nowIndex = index
+      }, 10)
+    },
+    runInv () {
+      this.invId = setInterval(() => {
+        this.goto(this.nextIndex)
+      }, this.inv)
+    },
+    clearInv () {
+      clearInterval(this.invId)
+    }
+  },
+  computed: {
+    prevIndex () {
+      if (this.nowIndex === 0) {
+        return this.productions.length - 1
+      } else {
+        return this.nowIndex - 1
+      }
+    },
+    nextIndex () {
+      if (this.nowIndex === this.productions.length - 1) {
+        return 0
+      } else {
+        return this.nowIndex + 1
+      }
+    }
+  },
+  mounted () {
+    this.runInv()
+  }
 }
 </script>
 <style scoped>
-.productions{
-  margin: 0% 15% 0 15%;
-  min-height: 800px;
+.producshow-position{
+  margin: 15% 20% 10% 20%;
 }
-.production-titles{
+.producshow-cover{
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 10%;
+  padding: 0 10%;
+  max-width: 1200px;
 }
-.productions-cat{
+.producshow-cover img {
+  width: 50%;
+  height: 40%;
+}
+.producshow-text{
+  margin-left: 10%;
+  max-width: 300px;
+  }
+.slide-trans-enter-active {
+  transition: all .5s;
+}
+
+.slide-trans-enter {
+  transform: translateX(900px);
+}
+
+.slide-trans-old-leave-active {
+  transition: all .5s;
+  transform: translateX(-900px);
+}
+
+.slide-pages-position {
   display: flex;
   justify-content: center;
+  margin-bottom:20%; 
 }
 
-
-.nav-items{
-  flex: 0 1 auto;
-  text-align: center;
-  padding: 20px 30px 5px 30px  ;
-  font-size: 2rem;
-  border-right:1px solid rgba(83, 214, 127, 0)
+.slide-pages li {
+  display: block;
+  float: left;
+  padding: 0 10px;
+  cursor: pointer;
+  color: #fff;
+}
+.slide-dots-icon{
+  width: 16px;
+  height: 16px;
+  border-radius: 100%;
+  background-color: rgba(0, 2, 2,0.2)
 }
 
-.router-link-active{
-    color:rgb(14, 14, 14);
-    border-bottom:1px solid rgb(14, 14, 14)
+.slide-pages .on {
+  background-color: red
 }
+ @media screen and (min-width:360px) and (max-width:430px){
+
+  .producshow-cover img {
+    width: 100%;
+    height: 100%;
+  }
+ }
 </style>

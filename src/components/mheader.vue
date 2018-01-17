@@ -25,7 +25,7 @@
                         </router-link>
                     </li>
                     <li>
-                        <router-link to="/alias">合作伙伴</router-link>
+                        <router-link to="/allies">合作伙伴</router-link>
                     </li>
                     <li>
                         <router-link to="/aboutus">关于我们</router-link>
