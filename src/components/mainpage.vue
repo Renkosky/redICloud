@@ -11,52 +11,32 @@
                 <p>绿色低碳的工程之选</p>
             </div>
             <div class="join">
-                <router-link tag="buton" class="join-btn" to="/aboutus">
+                <router-link tag="button" class="join-btn" to="/aboutus">
                 加入我们
                 </router-link>  
             </div> 
         </div>
     </div>
-    <div class="about">
-        <div class="about-info wow fadeInUp data-wow-delay= ' .3s' ">     
-            <h2>关于我们</h2>
-            <div class="hr-line-div"></div>
-            <p class="">成都红云鼎科技有限公司是一家创新型高新技术企业,
+    <msections>
+        <h2 slot="sections-title">关于我们</h2>
+        <p slot="sections-text">
+            成都红云鼎科技有限公司是一家创新型高新技术企业,
             依托深厚的通信、计算机信息行业经验，扎实的技术，先进的理念，
             以客户需求为导向，植根于行业应用的大数据，将信息科学与工程实际相结合，为客户提供业界领先的物联网应用解决方案。 
             我们竭诚服务于项目开发商、投资商，工程承包商、建筑方，全心助力客户面向工业4.0转型，
             并推动企业和行业向数字化、信息化、智能化发展。
-            </p>  
-        </div>
-    </div> 
+        </p>
+    </msections>
     <div class="about-cat">
-        <div class="about-cat-title  wow fadeInUp  data-wow-delay=' .3s' ">
-            <h2>解决方案</h2>
-            <div class="hr-line-div"></div>
-        </div>
-        <div class="about-cat-details">       
-            <div class="about-cat-cover wow fadeInUp data-wow-delay=' .3s' ">
-                <img src="../assets/lpa3.jpg" alt="123">
-                <div class="about-cat-info">
-                    <h3>隧道信息化/安全监测</h3> 
-                    <p>物联网+工业4.0，众多工程案例，特别在超特长隧道和瓦斯隧道有高竞争力的解决方案。</p>
-                </div>
-            </div>
-            <div class="about-cat-cover wow fadeInUp data-wow-delay=' .3s' ">
-                    <img src="../assets/nv8z.jpg" alt="123">
-                <div class="about-cat-info">
-                    <h3>桥梁健康监测</h3>
-                    <p>运用国内最领先的光栅光纤技术，采集大跨度桥梁主梁的应变、裂缝、加速度、温度等数据，评估桥梁的承载力和健康状况。</p>
-                </div>
-            </div>
-            <div class="about-cat-cover wow fadeInUp data-wow-delay=' .3s' ">
-                <img src="../assets/w450.jpg" alt="123">
-                <div class="about-cat-info">
-                    <h3>公路智能监理</h3>
-                    <p>综合运用现代通信技术、物联网技术、智能传感技术和大数据分析，智能监理工程进度，保证工程质量。</p>
-                </div>        
-            </div>
-        </div>
+        <msections><h2 slot="sections-title">解决方案</h2></msections>
+        <card v-for="(item, index) in mainpageCards" :key="index" :hasPic="hasPic">
+          <span slot="card-title">
+            {{ mainpageCards[index].title }}
+          </span>
+          <p slot="card-text">
+            {{ mainpageCards[index].text }}
+          </p>
+        </card>
     </div>
     <div class="contact">
         <div class="contact-content wow fadeInUp data-wow-delay=' .5s' ">
@@ -74,9 +54,38 @@
 </div>
 </template>
 <script>
-
+import msections from './msections'
+import card from './card'
 export default {
-  name:'mainpage'
+  name:'mainpage',
+  components:{
+    msections,
+    card
+  },
+  data() {
+      return {
+          hasPic: {
+              true
+              },
+          mainpageCards: [
+            {
+              title:'隧道信息化/安全监测',
+              text:'物联网+工业4.0，众多工程案例，特别在超特长隧道和瓦斯隧道有高竞争力的解决方案。',
+              url:require('../assets/lpa3.jpg')
+            },
+            {
+              title:'桥梁健康监测',
+              text:'运用国内最领先的光栅光纤技术，采集大跨度桥梁主梁的应变、裂缝、加速度、温度等数据，评估桥梁的承载力和健康状况。',
+              url:require('../assets/nv8z.jpg')
+            },
+            {
+              title:'公路智能监理',
+              text:'综合运用现代通信技术、物联网技术、智能传感技术和大数据分析，智能监理工程进度，保证工程质量。',
+              url:require('../assets/w450.jpg')
+            },
+          ]
+      }
+  }
 }
 </script>
 <style scoped>
@@ -123,7 +132,6 @@ export default {
     font-size:60px;
 }
 .intorduction-content p{
-    float: left;
     padding: 20px;
     text-align: center;
     font-size:20px;
@@ -136,7 +144,7 @@ export default {
     width: 200px;
     color: black;
     border: 1px solid black;
-    background-color: rgba(255, 255, 255, 0.431);
+    background-color: rgba(255, 255, 255, 0.2);
     transition: all 0.5s;
     font-size: 15px;
     text-align: center;
@@ -233,14 +241,6 @@ export default {
     }
     .hr-line-div {
         width: 300px;
-    }
-    .intorduction-left {
-        font-size: 20px;
-        padding-right:20px;
-        line-height: 11rem;
-    }
-    .intorduction-right {
-        font-size: 10px;
     }
 }
 </style>
