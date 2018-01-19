@@ -29,14 +29,17 @@
     </msections>
     <div class="about-cat">
         <msections><h2 slot="sections-title">解决方案</h2></msections>
-        <card v-for="(item, index) in mainpageCards" :key="index" :hasPic="hasPic">
-          <span slot="card-title">
-            {{ mainpageCards[index].title }}
-          </span>
-          <p slot="card-text">
-            {{ mainpageCards[index].text }}
-          </p>
-        </card>
+        <div class="card-pos">
+            <card v-for="(item, index) in mainpageCards" :key="index" :hasPic="hasPic">
+            <img :src="mainpageCards[index].url" alt="error" slot="card-img">
+            <span slot="card-title">
+                {{ mainpageCards[index].title }}
+            </span>
+            <p slot="card-text">
+                {{ mainpageCards[index].text }}
+            </p>
+            </card>
+        </div>
     </div>
     <div class="contact">
         <div class="contact-content wow fadeInUp data-wow-delay=' .5s' ">
@@ -64,9 +67,7 @@ export default {
   },
   data() {
       return {
-          hasPic: {
-              true
-              },
+          hasPic: true,
           mainpageCards: [
             {
               title:'隧道信息化/安全监测',
@@ -159,6 +160,11 @@ export default {
   .join-btn:hover{
     color: white;
     background-color: black
+  }
+  .card-pos{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center
   }
 .about{
   display: flex;

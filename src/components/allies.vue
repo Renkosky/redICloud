@@ -1,6 +1,6 @@
 <template>
   <div class="allies">
-    <h1>合作伙伴</h1>
+    <msections><h2 slot="sections-title">合作伙伴</h2></msections>
     <div class="allies-info wow fadeIn data-wow-delay='.6s'">
       <div class="allies-info-cover" v-for="(item,index) in alliesInfo" :key='index'>
         <img :src="alliesInfo[index].src" alt="">
@@ -19,8 +19,10 @@
   
 </template>
 <script>
+import msections from './msections'
 export default {
   name: 'allies',
+  components:{msections},
   data() {
     return {
       alliesInfo:[

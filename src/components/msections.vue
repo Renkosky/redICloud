@@ -21,6 +21,7 @@ export default {
 .hr-line-div {
   height: 1px;
   width: 400px;
+  margin-top: 20px;
   background: radial-gradient(#535353 10%, #ffffff00 100%);
 }
 .sections{
@@ -36,17 +37,16 @@ export default {
   align-items:center;
 }
 .sections-title{
-  padding: 80px;
+  padding: 40px;
 }
 .sections-text{
     width: 60%;
-    padding: 20px;
     text-align: center;
     font-size:20px;
 }
 @media screen and (min-width:360px) and (max-width:430px){
     .hr-line-div {
-        width: 300px;
+      width: 300px;
     }
 }
 </style>
