@@ -7,16 +7,15 @@ import contact from '@/components/contact'
 import example from '@/components/example'
 import productions from '@/components/productions'
 import solution from '@/components/solution'
-
-
-
-
-
+import tunnel from '@/components/tunnel'
+import bridge from '@/components/bridge'
+import road from '@/components/road'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    
     {
       path: '/',
       redirect: '/mainpage'
@@ -54,7 +53,22 @@ export default new Router({
     {
       path: '/solution',
       name: 'solution',
-      component: solution
-    },
+      component: solution,
+      redirect: '/solution/tunnel',
+      children:[
+        {
+          path: '/solution/tunnel',
+          component: tunnel,
+        },
+        {
+          path: '/solution/bridge',    
+          component: bridge,
+        },
+        {
+          path: '/solution/road',
+          component: road,
+        }
+      ]
+    }
   ]
 })

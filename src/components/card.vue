@@ -23,8 +23,8 @@ export default {
 
 
 .card-cover{
+    flex: 0 1 300px; 
     margin: 40px;
-    width: 300px;
     border: 1px solid rgb(204, 204, 204);
     transition: all 0.5s ease
 }

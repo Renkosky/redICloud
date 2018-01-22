@@ -1,32 +1,27 @@
 <template>
 <div class="mainpage">
-    <div class="title">    
-        <div class="bgimage"></div>
-        <div class="blur"></div>
-        <div class="intorduction">
-            <div class="intorduction-content wow fadeInUp data-wow-delay= ' .3s' ">
-                <h1>红云鼎</h1>
-                <p>引领物联网智慧浪潮</p>
-                <p>行业领先的管理解决方案</p>
-                <p>绿色低碳的工程之选</p>
-            </div>
-            <div class="join">
-                <router-link tag="button" class="join-btn" to="/aboutus">
-                加入我们
-                </router-link>  
-            </div> 
+    <div class="intorduction-bg">    
+        <div class="intorduction-title wow fadeInUp data-wow-delay= ' .3s' ">
+            <h1>红云鼎</h1>
+        </div>
+        <div class="intorduction-text wow fadeIn data-wow-delay= ' .3s'">
+            <p>引领物联网智慧浪潮</p>
+            <p>行业领先的管理解决方案</p>
+            <p>绿色低碳的工程之选</p>
         </div>
     </div>
-    <msections>
-        <h2 slot="sections-title">关于我们</h2>
-        <p slot="sections-text">
-            成都红云鼎科技有限公司是一家创新型高新技术企业,
-            依托深厚的通信、计算机信息行业经验，扎实的技术，先进的理念，
-            以客户需求为导向，植根于行业应用的大数据，将信息科学与工程实际相结合，为客户提供业界领先的物联网应用解决方案。 
-            我们竭诚服务于项目开发商、投资商，工程承包商、建筑方，全心助力客户面向工业4.0转型，
-            并推动企业和行业向数字化、信息化、智能化发展。
-        </p>
-    </msections>
+    <div class="section1-bg">
+        <msections>
+            <h2 slot="sections-title">关于我们</h2>
+            <p slot="sections-text">
+                成都红云鼎科技有限公司是一家创新型高新技术企业,
+                依托深厚的通信、计算机信息行业经验，扎实的技术，先进的理念，
+                以客户需求为导向，植根于行业应用的大数据，将信息科学与工程实际相结合，为客户提供业界领先的物联网应用解决方案。 
+                我们竭诚服务于项目开发商、投资商，工程承包商、建筑方，全心助力客户面向工业4.0转型，
+                并推动企业和行业向数字化、信息化、智能化发展。
+            </p>
+        </msections>
+     </div>
     <div class="about-cat">
         <msections><h2 slot="sections-title">解决方案</h2></msections>
         <div class="card-pos">
@@ -95,50 +90,28 @@ export default {
     padding: 20px;
     margin-right: 30px;
 }
-.title{
-    position: relative;
-    height: 800px;
-    width: 100%;
-    
-}
-.title img{
-    width: 100%;
-    height: 100%;
-    background-size: cover
-}
-
-.blur{
-    position: absolute;
-    top:0;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-.bgimage{
-    height: 100%;
-    background-image: url("../assets/christian-seeling-118793.jpg");
-    background-size: cover
-}
-.intorduction{
+.intorduction-bg{
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    position: absolute;
-    top:40%;
-    margin-left: 35%;
-    color:white;
+    height: 700px;
+    width: 100%;
+    background-image: url('../assets/redicloud.png');
+    color: white 
 }
-.intorduction-content{
-    font-size:60px;
+.intorduction-text{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2%;
+    font-size: 20px;
+    width: 100%
 }
-.intorduction-content p{
-    padding: 20px;
-    text-align: center;
-    font-size:20px;
-}
-.intorduction-right li{
-    padding: 20px;
+.intorduction-text p{
+    margin: 0% 2%;
+    
 }
   .join-btn{
     padding: 10px 40px 10px 40px;
@@ -197,34 +170,10 @@ export default {
     padding: 80px;
     text-align: center
 }
-.about-cat-details {
-    display: flex;
-    flex-wrap:wrap;
-    justify-content: center;
-    padding-bottom: 100px;
-}
-.about-cat-cover{
-    margin: 40px;
-    width: 300px;
-    border: 1px solid rgb(204, 204, 204);
-    transition: all 0.5s ease
-}
- .about-cat-cover:hover {
-    box-shadow:1px 2px 8px #53535380
-}
-.about-cat-cover img{
-    height: 170px;
-    width: 100%;
-    overflow: hidden;
-}
-
-.about-cat-info{
-    padding:20px;
-}
-.hr-line-div {
-    height: 1px;
-    width: 400px;
-    background: radial-gradient(#535353 10%, #ffffff00 100%);
+.section1-bg{
+    background-image: url('../assets/mo2.jpg');
+    background-size: cover;
+    padding: 5% 0;
 }
 .contact{
     padding: 100px;

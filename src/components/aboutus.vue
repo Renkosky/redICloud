@@ -23,17 +23,24 @@
           {{ cards[index].text }}
         </p>
       </card>
+      <msections>
+        <h2 slot="sections-title">联系方式</h2>
+      </msections>
+      <contact></contact>
     </div>
+
 </div>  
 </template>
 <script>
 import card from './card'
 import msections from './msections'
+import contact from './contact'
 export default {
   name: 'about',
   components: {
     card,
-    msections
+    msections,
+    contact
   },
   data() {
     return {
@@ -76,7 +83,7 @@ export default {
 <style scoped>
 
 .aboutus-info{
-  padding: 60px 100px 60px 100px;
+  padding: 5% 10% 5% 10%;
   font-size: 20px;
   color: white;
 }
@@ -99,5 +106,10 @@ export default {
     margin: 0% 20%;
     padding-bottom: 100px;
 }
+ @media screen and (min-width:360px) and (max-width:430px){
 
+ .about-cat-details {
+    margin: 0% 
+  }
+ }
 </style>

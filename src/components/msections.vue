@@ -27,7 +27,7 @@ export default {
 .sections{
   display: flex;
   justify-content:center;
-  margin:50px 0;
+  padding:50px 0;
   background-size: cover;
 }
 .sections-info{
@@ -35,9 +35,10 @@ export default {
   flex-direction: column;
   text-align: center;
   align-items:center;
+
 }
 .sections-title{
-  padding: 40px;
+  padding: 40px 30px;
 }
 .sections-text{
     width: 60%;
@@ -47,6 +48,9 @@ export default {
 @media screen and (min-width:360px) and (max-width:430px){
     .hr-line-div {
       width: 300px;
+    }
+    .sections{
+      padding: 0;
     }
 }
 </style>

@@ -87,7 +87,7 @@ export default {
 h3{display: block}
 p{display: block}
 .slide-position{
-  margin: 0% 10% 10% 10%;
+  margin: 0% 10% 0% 10%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -97,9 +97,10 @@ p{display: block}
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
   padding: 0 50px;
-  max-width: 1200px;
+  height: 50%;
+  width: 1000px
 }
  .slider-btn{
     position: absolute;
@@ -118,7 +119,9 @@ p{display: block}
 }
 .slidecolumn{
   flex-direction: column;
-  align-items: center
+  align-items: center;
+  width: 1000px;
+  height: 600px;
 }
 .columnImg{
   width: 80%;
@@ -143,7 +146,7 @@ p{display: block}
   right: 0
 }
 
-.slide-trans-enter-active {
+/* .slide-trans-enter-active {
   transition: all .5s;
 }
 
@@ -154,7 +157,7 @@ p{display: block}
 .slide-trans-old-leave-active {
   transition: all .5s;
   transform: translateX(-900px);
-}
+} */
 
 .slide-pages-position {
   display: flex;
@@ -187,7 +190,8 @@ p{display: block}
     height: 550px;
   }
   .slidecolumn{
-    padding-top: 100px
+    padding-top: 100px;
+    width: 330px;
   }
   .rowImg {
     width: 100%;
@@ -207,5 +211,11 @@ p{display: block}
       flex-direction: column;
       align-items: center
   }
+  .slidecolumn{
+  flex-direction: column;
+  align-items: center;
+  width: 900px;
+  height: 500px;
+}
  }
 </style>
