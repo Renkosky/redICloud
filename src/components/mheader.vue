@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" @click="toggleCollapse()" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                <button type="button"  class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
                     aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
@@ -12,14 +12,13 @@
                 </button>
                 <router-link class="navbar-brand" href="#" to='/'>红云鼎</router-link>
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
                         <router-link to="/productions">产品中心</router-link>
                     </li>
                     <li class="dropdown">
-                        <router-link to="/solution" @click="toggledrop()"
+                        <router-link to="/solution" 
                          class="dropdown-toggle">
                             解决方案
                         </router-link>
@@ -37,13 +36,7 @@
 </template>
 <script>
 export default {
-  name: 'mheader',
-  methods: {
-      toggleCollapse () {
-          let navbarClass = document.getElementById('bs-example-navbar-collapse-1').classList;
-          navbarClass.toggle('collapse')
-      }
-  }
+  name: 'mheader'
 }
 </script>
 <style scoped>

@@ -13,22 +13,59 @@
   <msections>   
     <h2 slot="sections-title">为什么选择红云鼎？</h2>
   </msections>
-    <div class="about-cat-details">
-      <card v-for="(item, index) in cards" :key="index" :hasPic="hasPic">
-        <img :src="cards[index].url" alt="error" slot="card-img">
-        <span slot="card-title">
-          {{ cards[index].title }}
-        </span>
-        <p slot="card-text">
-          {{ cards[index].text }}
-        </p>
-      </card>
+    <div class="team wow fadeIn data-wow-delay=' .3s'">
+      <div class="team-title">
+        <h1>我们的团队</h1>
+        <p>our team</p>
+      </div>
+        <div class="team-mem">
+          <div class="mem-content" v-for="(item, index) in team" :key="index">
+            <div class="mem-img">
+              <img :src="team[index].src" alt="error">
+              <div class="mem-cover"></div>
+              <div class="mem-info">
+                <p>{{ team[index].duty }}</p>
+                <h2>{{ team[index].name }}</h2>        
+              </div>
+            </div> 
+          </div>
+        </div>
+    </div>
+    <div style="background-color: #f5f5f5">
+      <div class="team wow fadeIn data-wow-delay=' .3s'" >
+        <div class="team-title">
+          <h1>我们的优势</h1>
+          <p>our advantage</p>
+        </div>
+        <div class="team-mem">
+            <div class="mem-content" v-for="(item, index) in adv" :key="index" >
+              <div class="mem-img">
+                <img :src="adv[index].src" alt="error">
+                <div class="mem-cover"></div>
+                <div class="mem-info" :class="{ biginfo: adv[index].big }">
+                  <p>{{ adv[index].duty }}</p>
+                  <h2>{{ adv[index].name }}</h2>        
+                </div>
+              </div> 
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="team  wow fadeIn data-wow-delay=' .3s' ">
+      <div class="team-title">
+        <h1>我们的使命</h1>
+        <p>our route</p>
+      </div>
+      <div class="team-mem">
+        <h3>既可提供全方位一站式的系统方案和服务，
+          也可有针对性的定制解决方案或升级改造，以“价值、创新”为导向，帮助客户成就最大化的商业价值。
+        </h3>
+      </div>
+    </div>
       <msections>
         <h2 slot="sections-title">联系方式</h2>
       </msections>
       <contact></contact>
-    </div>
-
 </div>  
 </template>
 <script>
@@ -38,50 +75,52 @@ import contact from './contact'
 export default {
   name: 'about',
   components: {
-    card,
     msections,
     contact
   },
   data() {
     return {
-        hasPic: true,
-        cards: [
+        team: [
           {
-            title: '我们的团队',
-            text: '我们是一支具有丰富行业经验和创新精神的团队，公司主创人员来自华为和国内著名高校，现有博士2名，'+
-              '中青年梯队合理。凭借主创人员多年大型国企和跨国公司的工作经验与项目操作经验，'+
-             '在ICT信息与通信技术领域的深度理解和前瞻性，围绕物联网技术在工业领域的交叉应用，'+
-              '大数据分析、工业智能在专业领域进行纵深研究，不断开拓进取，全心全意为客户服务。',
-            url:require('../assets/rawpixel-com-250087.jpg')
+            src:require('../assets/team/lenon.jpg'),
+            duty:'主唱/作词/作曲',
+            name:'约翰列侬'
           },
           {
-            title: '我们的使命',
-            text: '竭诚服务于项目开发商、投资商，工程承包商、建筑方，全心助力客户面向工业4.0转型，并推动企业和行业向数字化、信息化、智能化发展。',
-            url: require('../assets/nasa-53884.jpg')
+            src:require('../assets/team/pual.jpg'),
+            duty:'主唱/作词/作曲',
+            name:'保罗麦卡特尼'
           },
           {
-            title: '我们的优势',
-            text: '既可提供全方位一站式的系统方案和服务，也可有针对性的定制解决方案或升级改造，'+
-            '以“价值、创新”为导向，帮助客户成就最大化的商业价值。',
-            url:require('../assets/helloquence-61189.jpg')
+            src:require('../assets/team/george.jpg'),
+            duty:'吉他',
+            name:'约翰哈里森'
           },
           {
-            title:'我们的专利',
-            text:'',
-            url:require('../assets/wlbf.jpg')
+            src:require('../assets/team/ringo.jpg'),
+            duty:'鼓手',
+            name:'林戈斯塔尔'
+          },
+        ],
+        adv: [
+          {
+            big: true, 
+            src: require('../assets/mgwm.jpg'),
+            duty: '专业证书',
+            name: '高新技术企业'
           },
           {
-            title:'我们的认证',
-            text:'',
-            url:require('../assets/mgwm.jpg')
-          }
+            big: true,
+            src: require('../assets/wlbf.jpg'),
+            duty: '专业证书',
+            name: '专利证书'
+          },
         ]
       }
     }
 }
 </script>
 <style scoped>
-
 .aboutus-info{
   padding: 5% 10% 5% 10%;
   font-size: 20px;
@@ -98,18 +137,92 @@ export default {
   color: white;
 
 }
+.team {
+  display: flex;
+  justify-content: flex-start;
+  margin: 5% 10%;;
+  padding-bottom: 100px;
+}
+.team-title{
+  margin-right: 5%;
+  min-width: 180px;
+  background-color: #f5f5f5
+}
+.team-title p{
+  color: rgb(165, 165, 165);
+}
+.team-mem{
+  display: flex;
 
-.about-cat-details {
-    display: flex;
-    flex-wrap:wrap;
-    justify-content: center;
-    margin: 0% 20%;
-    padding-bottom: 100px;
+  flex: 1 1 auto
+}
+.mem-content{
+  overflow: hidden;
+  transition: all 1s ease;
+}
+.bigcontent{
+  width: 500px;
+}
+.mem-content img{
+  width: 100%;
+}
+.mem-img{
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+.mem-cover{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0%;
+  height: 100%;
+  background-color:rgba(255, 255, 255, 0.8);
+  transition: all 0.5s ease
+}
+.mem-info{
+  position: absolute;
+  padding: 90% 0 0 10%;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all 0.5s ease
+}
+.biginfo{
+  padding: 40% 0 0 10% !important;
+}
+.mem-info p{
+  font-size: 16px;
+}
+.mem-img:hover .mem-cover{
+  width: 100%;
+}
+.mem-img:hover .mem-info{
+  opacity: 1;
 }
  @media screen and (min-width:360px) and (max-width:430px){
 
- .about-cat-details {
+ .team-details {
     margin: 0% 
+  }
+  .team {
+    display: flex;
+    flex-wrap:wrap;
+    margin: 0% 10px;
+    padding-bottom: 100px;
+  }
+  .mem-content{
+    width: 50%;
+    height: 250px
+  }
+
+  .team-mem{
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 5px
   }
  }
 </style>

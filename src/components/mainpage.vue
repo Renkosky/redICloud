@@ -1,14 +1,14 @@
 <template>
 <div class="mainpage">
-    <div class="intorduction-bg">    
-        <div class="intorduction-title wow fadeInUp data-wow-delay= ' .3s' ">
-            <h1>红云鼎</h1>
-        </div>
-        <div class="intorduction-text wow fadeIn data-wow-delay= ' .3s'">
-            <p>引领物联网智慧浪潮</p>
-            <p>行业领先的管理解决方案</p>
-            <p>绿色低碳的工程之选</p>
-        </div>
+    <div class="swiper-wrap wow fadeIn data-wow-delay=' .5s' ">
+        <swiper :options="swiperOption">
+        <swiper-slide v-for="(item, index) in slide" :key="index">
+            <img :src="slide[index].src" alt="error" srcset="">
+            <p class="wow fadeInUp">{{ slide[index].title }}</p>
+        </swiper-slide>
+        <div class="swiper-button-prev" slot="button-prev"></div>
+        <div class="swiper-button-next" slot="button-next"></div>
+        </swiper>
     </div>
     <div class="section1-bg">
         <msections>
@@ -36,29 +36,20 @@
             </card>
         </div>
     </div>
-    <div class="contact">
-        <div class="contact-content wow fadeInUp data-wow-delay=' .5s' ">
-            <h1>联系我们</h1>
-            <p>成都红云鼎科技有限公司</p>
-            <p>电话： (0086) 028-85002569</p>
-            <p>(0086) 138-8019-0669</p>
-            <p>地址： 成都高新西区西源大道2006号电子科技大学创新中心6栋501</p>
-            <p>成都市高新区府城大道399号天府新谷10栋18楼</p>
-            <p>公众号:</p>
-            <img src="../assets/bfpc.jpg" alt="二维码">
-        </div>
-    </div>
 
 </div>
 </template>
 <script>
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import msections from './msections'
 import card from './card'
 export default {
   name:'mainpage',
   components:{
     msections,
-    card
+    card,
+    swiper,  
+    swiperSlide
   },
   data() {
       return {
@@ -79,7 +70,46 @@ export default {
               text:'综合运用现代通信技术、物联网技术、智能传感技术和大数据分析，智能监理工程进度，保证工程质量。',
               url:require('../assets/w450.jpg')
             },
-          ]
+          ],
+          /**
+           * swiper中的文字以及图片
+           */
+          slide: [
+            {
+              src: require('../assets/redicloud.png'),
+              title: '红云鼎',
+            },
+            {
+              src: require('../assets/redicloud.png'),
+              title: '引领物联网智慧浪潮'
+            },
+            {
+              src: require('../assets/redicloud.png'),
+              title: '行业领先的管理解决方案',
+            },
+             {
+              src: require('../assets/redicloud.png'),
+              title: '绿色低碳的工程之选',
+            },
+          ], 
+          /*配置swpier*/        
+         swiperOption: {
+           spaceBetween: 30,
+           centeredSlides: true,
+           speed:1000,
+           autoplay: {
+              delay: 5000,
+              disableOnInteraction: false
+            },
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev'
+          }
+        }
       }
   }
 }
@@ -124,7 +154,7 @@ export default {
     text-align: center;
     border-radius: 5px;
   }
-    .join{
+  .join{
     display: flex;
     justify-content: center;
     padding: 40px;
@@ -175,18 +205,22 @@ export default {
     background-size: cover;
     padding: 5% 0;
 }
-.contact{
-    padding: 100px;
-    background-color: #d3d3d3;
-}
-.contact-content{
-    margin-left: 10%;
-}
-.contact-content img{
-    width: 100px;
-    height: 100px;
-}
 
+.swiper-wrap img{
+    width: 100%;
+    height: 700px;
+}
+.swiper-wrap p{
+    position: absolute;
+    display: block;    
+    left: 0;
+    right: 0;
+    top: 50%;
+    margin:auto;
+    font-size: 40px; 
+    color: white;
+    text-align: center
+}
 @media screen and (min-width:360px) and (max-width:430px){
     body{min-width: 0;}
     .intorduction {   
@@ -196,6 +230,13 @@ export default {
     }
     .hr-line-div {
         width: 300px;
+    }
+    .swiper-wrap img{
+        width: 100%;
+        height: 400px;
+    }
+    .swiper-wrap p{
+        font-size: 20px;
     }
 }
 </style>

@@ -4,7 +4,6 @@ import mainpage from '@/components/mainpage'
 import aboutus from '@/components/aboutus'
 import allies from '@/components/allies'
 import contact from '@/components/contact'
-import example from '@/components/example'
 import productions from '@/components/productions'
 import solution from '@/components/solution'
 import tunnel from '@/components/tunnel'
@@ -39,11 +38,6 @@ export default new Router({
       path: '/contact',
       name: 'contact',
       component: contact
-    },
-    {
-      path: '/example',
-      name: 'example',
-      component: example
     },
     {
       path: '/productions',

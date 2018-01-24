@@ -8,11 +8,9 @@
         <router-link to="/solution/tunnel">隧道信息化/安全监测</router-link>
         <router-link to="/solution/bridge">桥梁健康监测</router-link>
         <router-link to="/solution/road">公路智能监理</router-link>
-      </div>
-      <div class="solution-slide">
-        <router-view></router-view>
-      </div>
+      </div>  
     </div>
+    <router-view></router-view>
   </div>
   
 </template>
@@ -27,18 +25,28 @@ export default {
 }
 </script>
 <style scoped>
+
+.solution-tab a{
+  display: block;
+  padding: 0 2%;
+}
+
 .solution-tab{
   display: flex;
-  flex-direction: column;
-  font-size: 20px;
-}
-.solution-show{
-  display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  height: 700px;
+  flex: 0 0 auto;
+  font-size: 20px;
 }
 .router-link-active{
   color: black
+}
+@media screen and (min-width:360px) and (max-width:430px){
+  .solution-tab a{
+    display: block;
+    padding: 0 10%;
+  }
+  .solution-tab{
+    flex-wrap:wrap 
+  }
 }
 </style>

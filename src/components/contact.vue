@@ -20,7 +20,8 @@ export default {
 .contact{
   display: flex;
   flex-wrap: wrap;
-  justify-content: center
+  justify-content: center;
+  margin-bottom: 5%
 }
 .contact-img{
   width: 40%
