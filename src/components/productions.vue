@@ -1,19 +1,25 @@
 <template>
 <div>
-  <msections>
-    <h2 slot="sections-title">产品中心</h2>
-  </msections>
+  <banner :bgimage="bgimage"></banner>
   <proshow></proshow>
 </div>
 </template>
 <script>
+import banner from './banner'
 import proshow  from './proshow'
 import msections from './msections'
 export default {
   name: 'about',
-  components:{proshow,msections},
+  components:{
+    proshow,
+    msections,
+    banner
+  },
   data () {
     return {
+      bgimage:{
+          backgroundImage: 'url('+require('../assets/banner/jason-wong-351890.jpg')+')'
+        }
     }
   }
 }

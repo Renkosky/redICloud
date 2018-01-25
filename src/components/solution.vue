@@ -1,8 +1,12 @@
 <template>
   <div>
-    <msections>
-      <h1 slot="sections-title">解决方案</h1>
-    </msections>
+    <banner :bgimage="bgimage">
+      <h1 slot="banner-title">解决方案</h1>
+      <p slot="banner-info">
+      针对各行业业务特性，打造个性化行业解决方案，为用户提供一站式的产品与服务。包括
+      隧道信息化/安全监测，桥梁健康监测以及公路智能监理
+      </p>
+    </banner>
     <div class="solution-show">
       <div class="solution-tab">
         <router-link to="/solution/tunnel">隧道信息化/安全监测</router-link>
@@ -15,12 +19,21 @@
   
 </template>
 <script>
+import banner from './banner'
 import slider from './slider'
 import msections from './msections'
 export default {
   name: 'solution',
   components:{
-    msections
+    msections,
+    banner
+  },
+  data() {
+    return {
+       bgimage:{
+          backgroundImage: 'url('+require('../assets/banner/frederic-koberl-108783.jpg')+')'
+        }
+    }
   }
 }
 </script>
@@ -43,7 +56,7 @@ export default {
 @media screen and (min-width:360px) and (max-width:430px){
   .solution-tab a{
     display: block;
-    padding: 0 10%;
+    padding: 0 50px;
   }
   .solution-tab{
     flex-wrap:wrap 

@@ -1,6 +1,13 @@
 <template>
+<div>
+   <banner :bgimage="bgimage">
+      <h1 slot="banner-title">合作伙伴</h1>
+      <p slot="banner-info">
+      针对各行业业务特性，打造个性化行业解决方案，为用户提供一站式的产品与服务。包括
+      隧道信息化/安全监测，桥梁健康监测以及公路智能监理
+      </p>
+    </banner>
   <div class="allies">
-    <msections><h2 slot="sections-title">合作伙伴</h2></msections>
     <div class="allies-info wow fadeIn data-wow-delay='.6s'">
       <a class="allies-info-cover" v-for="(item,index) in alliesInfo" :key='index' :href="alliesInfo[index].href">
         <img :src="alliesInfo[index].src" alt="">
@@ -16,13 +23,14 @@
       </router-link>      
     </div>
   </div>
-  
+</div>
 </template>
 <script>
+import banner from './banner'
 import msections from './msections'
 export default {
   name: 'allies',
-  components:{msections},
+  components:{msections,banner},
   data() {
     return {
       alliesInfo:[
@@ -53,7 +61,10 @@ export default {
           text: "与成都信息工程大学信息安全学院筹备成立工业物联网数据中心与数据安全实验室。 为健壮物联体系架构，培养后继优秀人才做好准备。",
           href: "http://www.cuit.edu.cn/"
         },
-      ]
+      ],
+      bgimage:{
+          backgroundImage: 'url('+require('../assets/banner/evelyn-mostrom-113153.jpg')+')'
+        }
     }
   }
 }

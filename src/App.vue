@@ -29,7 +29,7 @@ export default {
 
 body,button, input, select, textarea,h1 ,h2, h3, 
 h4, h5, h6 { font-family: Microsoft YaHei,'宋体' , Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;}
-ul,li{list-style: none}
+ul,li{list-style: none;margin: 0;padding: 0}
 a{text-decoration:none !important}
 a:hover{text-decoration:none !important}
 body { min-width: 1000px }

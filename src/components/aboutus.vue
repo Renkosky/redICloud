@@ -1,18 +1,15 @@
 <template>
 <div class="aboutus">
-  <div class="aboutus-background">
-    <div class="aboutus-title">
-      <h1>关于我们</h1>
-   </div>
-    <div class="aboutus-info">
-      成都红云鼎科技有限公司是一家创新型高新技术企业，
-        依托深厚的通信、计算机信息行业经验，扎实的技术，先进的理念，以客户需求为导向，
-        植根于行业应用的大数据，将信息科学与工程实际相结合，为客户提供业界领先的物联网应用解决方案
-    </div>
-  </div>
-  <msections>   
-    <h2 slot="sections-title">为什么选择红云鼎？</h2>
-  </msections>
+  <banner :bgimage="bgimage">
+    <h1 slot="banner-title">关于我们</h1>
+    <p slot="banner-info">
+      成都红云鼎科技有限公司是一家创新型高新技术企业，依托深厚的通信、计算机信息行业经验，扎实的技术，
+      先进的理念，以客户需求为导向，植根于行业应用的大数据，
+      将信息科学与工程实际相结合，为客户提供业界领先的物联网应用解决方案。</p>
+  </banner>
+    <subtitle>
+      <span slot="tit">为什么选择红云鼎</span>
+      </subtitle>
     <div class="team wow fadeIn data-wow-delay=' .3s'">
       <div class="team-title">
         <h1>我们的团队</h1>
@@ -31,25 +28,23 @@
           </div>
         </div>
     </div>
-    <div style="background-color: #f5f5f5">
-      <div class="team wow fadeIn data-wow-delay=' .3s'" >
-        <div class="team-title">
-          <h1>我们的优势</h1>
-          <p>our advantage</p>
-        </div>
-        <div class="team-mem">
-            <div class="mem-content" v-for="(item, index) in adv" :key="index" >
-              <div class="mem-img">
-                <img :src="adv[index].src" alt="error">
-                <div class="mem-cover"></div>
-                <div class="mem-info" :class="{ biginfo: adv[index].big }">
-                  <p>{{ adv[index].duty }}</p>
-                  <h2>{{ adv[index].name }}</h2>        
-                </div>
-              </div> 
-            </div>
-          </div>
+    <div class="team wow fadeIn data-wow-delay=' .3s'" >
+      <div class="team-title">
+        <h1>我们的优势</h1>
+        <p>our advantage</p>
       </div>
+      <div class="team-mem">
+          <div class="mem-content" v-for="(item, index) in adv" :key="index" id="bigcontent">
+            <div class="mem-img">
+              <img :src="adv[index].src" alt="error">
+              <div class="mem-cover"></div>
+              <div class="mem-info" :class="{ biginfo: adv[index].big }">
+                <p>{{ adv[index].duty }}</p>
+                <h2>{{ adv[index].name }}</h2>        
+              </div>
+            </div> 
+          </div>
+        </div>
     </div>
     <div class="team  wow fadeIn data-wow-delay=' .3s' ">
       <div class="team-title">
@@ -57,9 +52,9 @@
         <p>our route</p>
       </div>
       <div class="team-mem">
-        <h3>既可提供全方位一站式的系统方案和服务，
+        <p>既可提供全方位一站式的系统方案和服务，
           也可有针对性的定制解决方案或升级改造，以“价值、创新”为导向，帮助客户成就最大化的商业价值。
-        </h3>
+        </p>
       </div>
     </div>
       <msections>
@@ -69,6 +64,8 @@
 </div>  
 </template>
 <script>
+import subtitle from './subtitle'
+import banner from './banner'
 import card from './card'
 import msections from './msections'
 import contact from './contact'
@@ -76,7 +73,9 @@ export default {
   name: 'about',
   components: {
     msections,
-    contact
+    contact,
+    banner,
+    subtitle
   },
   data() {
     return {
@@ -115,7 +114,10 @@ export default {
             duty: '专业证书',
             name: '专利证书'
           },
-        ]
+        ],
+        bgimage:{
+          backgroundImage: 'url('+require('../assets/banner/paul-morris-286949.jpg')+')'
+        }
       }
     }
 }
@@ -128,7 +130,7 @@ export default {
 }
 .aboutus-background{
   height: 600px;
-  background-image: url('../assets/mo.jpg');
+  background-image: url('../assets/banner/paul-morris-286949.jpg');
   background-size: cover;
 }
 .aboutus-title{
@@ -140,20 +142,22 @@ export default {
 .team {
   display: flex;
   justify-content: flex-start;
-  margin: 5% 10%;;
+  margin: 5% 10%;
   padding-bottom: 100px;
 }
 .team-title{
   margin-right: 5%;
+  max-width: 100%;
   min-width: 180px;
-  background-color: #f5f5f5
+  background-color: #f5f5f5;
+  border-radius: 5px
 }
 .team-title p{
   color: rgb(165, 165, 165);
 }
 .team-mem{
   display: flex;
-
+  font-size: 20px;
   flex: 1 1 auto
 }
 .mem-content{
@@ -203,15 +207,18 @@ export default {
   opacity: 1;
 }
  @media screen and (min-width:360px) and (max-width:430px){
-
- .team-details {
-    margin: 0% 
-  }
+   #bigcontent{
+     width: 100%;
+   }
   .team {
     display: flex;
     flex-wrap:wrap;
     margin: 0% 10px;
     padding-bottom: 100px;
+  }
+  .team-title{
+    width: 100%;
+    margin: 5% 0
   }
   .mem-content{
     width: 50%;
