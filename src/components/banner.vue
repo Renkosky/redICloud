@@ -1,17 +1,15 @@
 <template>
   <div>
     <div class="banner" :style="bgimage">
-      <div class="banner-title">
+      <div class="banner-title wow fadeIn">
         <slot name="banner-title"></slot>
       </div>
-      <div class="banner-info">
+      <div class="banner-info wow fadeIn">
         <slot name="banner-info"></slot>
       </div>
       <div class="banner-tab">
         <ul>
-          <li>我们的团队</li>
-          <li>我们的优势</li>
-          <li>我们的使命</li>
+          <li v-for="(item, index) in banner" :key="index"><a :href="'#'+index">{{ banner[index] }}</a></li>
         </ul>
       </div>
     </div>   
@@ -23,12 +21,26 @@ export default {
   props:{
     bgimage:{
       type:Object
+    },
+    banner:{
+      type:Array
+    }
+  },
+  method:{
+    goto(){
+
     }
   }
 }
 </script>
 
 <style scoped>
+a{
+  display: block;
+  padding: 12px 80px;
+  color: white;
+  transition: all 0.5s ease
+}
 .banner-info{
   padding: 0% 10% 5% 10%;
   font-size: 20px;
@@ -55,10 +67,15 @@ export default {
   display: flex;
   justify-content: center
 }
-.banner-tab li{
-  padding: 12px 80px;
+.banner-tab li a:hover{
+  background-color: white;
+  color: black;
 }
 @media screen and (min-width:360px) and (max-width:430px){
   p { font-size: 16px;}
+  .banner-tab li a{
+  padding: 20px;
+  transition: all 1s ease
+}
 }
 </style>

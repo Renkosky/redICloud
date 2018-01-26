@@ -1,11 +1,11 @@
 <template>
     <div class="sections">   
-        <div class="title" >
-          <p class="line"></p>
-          <p class="tit">
-            <slot name="tit" ></slot>
-          </p>
-		</div>
+      <div class="title wow fadeIn">
+        <p class="line"></p>
+        <p class="tit">
+          <slot name="tit" ></slot>
+        </p>
+		  </div>
     </div>
 </template>
 <script>
@@ -44,4 +44,11 @@ export default {
     position: relative;
     z-index: 2;
 }
+ @media screen and (min-width:360px) and (max-width:430px){
+
+  .sections{
+    padding:60px 20px 0px 20px;
+    background-size: cover;
+  }
+ }
 </style>

@@ -17,7 +17,7 @@ export default {
   name: 'solswiper',
   components:{
     swiper,  
-    swiperSlide
+    swiperSlide,
   },
   props:{
     slide: {
@@ -49,7 +49,7 @@ export default {
 </script>
 <style scoped>
 .swiper-wrap{
-  margin: 5% auto;
+  margin: 6% auto;
   width: 60%;
   text-align: center;
 }

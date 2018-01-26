@@ -1,6 +1,6 @@
 <template>
 <div class="aboutus">
-  <banner :bgimage="bgimage">
+  <banner :bgimage="bgimage" :banner="banner">
     <h1 slot="banner-title">关于我们</h1>
     <p slot="banner-info">
       成都红云鼎科技有限公司是一家创新型高新技术企业，依托深厚的通信、计算机信息行业经验，扎实的技术，
@@ -9,8 +9,8 @@
   </banner>
     <subtitle>
       <span slot="tit">为什么选择红云鼎</span>
-      </subtitle>
-    <div class="team wow fadeIn data-wow-delay=' .3s'">
+    </subtitle>
+    <div class="team wow fadeIn data-wow-delay=' .3s'" id="0">
       <div class="team-title">
         <h1>我们的团队</h1>
         <p>our team</p>
@@ -28,7 +28,7 @@
           </div>
         </div>
     </div>
-    <div class="team wow fadeIn data-wow-delay=' .3s'" >
+    <div class="team wow fadeIn data-wow-delay=' .3s'" id="1">
       <div class="team-title">
         <h1>我们的优势</h1>
         <p>our advantage</p>
@@ -46,7 +46,7 @@
           </div>
         </div>
     </div>
-    <div class="team  wow fadeIn data-wow-delay=' .3s' ">
+    <div class="team  wow fadeIn data-wow-delay=' .3s' " id="2">
       <div class="team-title">
         <h1>我们的使命</h1>
         <p>our route</p>
@@ -57,9 +57,7 @@
         </p>
       </div>
     </div>
-      <msections>
-        <h2 slot="sections-title">联系方式</h2>
-      </msections>
+      <subtitle><span slot="tit">联系方式</span></subtitle>
       <contact></contact>
 </div>  
 </template>
@@ -117,7 +115,8 @@ export default {
         ],
         bgimage:{
           backgroundImage: 'url('+require('../assets/banner/paul-morris-286949.jpg')+')'
-        }
+        },
+        banner:['我们的团队','我们的优势','我们的使命']
       }
     }
 }
