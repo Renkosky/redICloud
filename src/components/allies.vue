@@ -63,7 +63,7 @@ export default {
         },
       ],
       bgimage:{
-          backgroundImage: 'url('+require('../assets/banner/evelyn-mostrom-113153.jpg')+')'
+          backgroundImage: 'url('+require('../assets/banner/nasa.jpg')+')'
         }
     }
   }
@@ -89,7 +89,10 @@ a{
     padding: 25px;
     background-color: white;
     box-shadow:1px 2px 8px #53535380;
-    border-radius: 10px
+    transition: all 0.5s ease
+  }
+  .allies-info-cover:hover{
+    transform: scale(1.1)
   }
   .allies-info img{
     display: block;

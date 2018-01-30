@@ -29,7 +29,8 @@ export default {
     transition: all 0.5s ease
 }
  .card-cover:hover {
-    box-shadow:1px 2px 8px #53535380
+    transform: scale(1.1);
+    box-shadow:1px 2px 10px #53535380
 }
 .card-cover img{
     height: 170px;

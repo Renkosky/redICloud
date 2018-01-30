@@ -80,15 +80,15 @@ export default {
               title: '红云鼎',
             },
             {
-              src: require('../assets/redicloud.png'),
+              src: require('../assets/banner/nasa.jpg'),
               title: '引领物联网智慧浪潮'
             },
             {
-              src: require('../assets/redicloud.png'),
+              src: require('../assets/banner/frederic-koberl-108783.jpg'),
               title: '行业领先的管理解决方案',
             },
              {
-              src: require('../assets/redicloud.png'),
+              src: require('../assets/banner/paul-morris-286949.jpg'),
               title: '绿色低碳的工程之选',
             },
           ], 
@@ -143,17 +143,6 @@ export default {
     margin: 0% 2%;
     
 }
-  .join-btn{
-    padding: 10px 40px 10px 40px;
-    width: 200px;
-    color: black;
-    border: 1px solid black;
-    background-color: rgba(255, 255, 255, 0.2);
-    transition: all 0.5s;
-    font-size: 15px;
-    text-align: center;
-    border-radius: 5px;
-  }
   .join{
     display: flex;
     justify-content: center;
@@ -169,29 +158,10 @@ export default {
       flex-wrap: wrap;
       justify-content: center
   }
-.about{
-  display: flex;
-  justify-content:center;
-  margin:200px 0 200px 0;
-  /* background-image: url('../assets/christian-seeling-118793.jpg'); */
-  background-size: cover;
-  /* opacity: 0.4 */
-}
-.about-info{
-    width: 1000px;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items:center;
-}
-.about-info p {
-    display: block;
-    padding: 40px;
-    font-size: 20px
-}
+
 .about-cat{
     text-align: center;
-    background-color: #f5f5f5;
+    background-color: rgb(245,245,251);;
 }
 .about-cat-title{
     display: flex;
@@ -208,7 +178,7 @@ export default {
 
 .swiper-wrap img{
     width: 100%;
-    height: 700px;
+    height: 400px;
 }
 .swiper-wrap p{
     position: absolute;
